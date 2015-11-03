@@ -10,11 +10,18 @@
               .attr('width', svgWidth)
               .attr('height', svgHeight)
 
+  var xScale = d3.scale.linear()
+                  .domain([0, d3.max(dataset, function(d) {return d[0];})])
+                  .range([0, svgWidth]);
+  var yScale = d3.scale.linear()
+                  .domain([0, d3.max(dataset, function(d) {return d[1];})])
+                  .range([0, svgHeight])
+
   svg.selectAll('circle').data(dataset)
     .enter()
     .append('circle')
-    .attr('cx', function(d){return d[0]})
-    .attr('cy', function(d){return d[1]})
+    .attr('cx', function(d){return xScale(d[0])})
+    .attr('cy', function(d){return yScale(d[1])})
     .attr('r', 5);
 
 
@@ -22,7 +29,7 @@
     .enter()
     .append('text')
     .text(function(d) {return d[0] + "," + d[1]})
-    .attr('x', function(d) {return d[0]})
-    .attr('y', function(d) {return d[1]})
+    .attr('x', function(d) {return xScale(d[0])})
+    .attr('y', function(d) {return yScale(d[1])})
     .attr('class', 'scatter-labels');
 })();
