@@ -16,4 +16,13 @@
     .attr('cx', function(d){return d[0]})
     .attr('cy', function(d){return d[1]})
     .attr('r', 5);
+
+
+  svg.selectAll('text').data(dataset)
+    .enter()
+    .append('text')
+    .text(function(d) {return d[0] + "," + d[1]})
+    .attr('x', function(d) {return d[0]})
+    .attr('y', function(d) {return d[1]})
+    .attr('class', 'scatter-labels');
 })();
