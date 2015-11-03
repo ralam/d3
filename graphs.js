@@ -1,13 +1,20 @@
 (function() {
   var dataset = [];
-  for(var i = 0; i < 25; i++) {
-    dataset.push(Math.ceil(Math.random() * 30));
+  var height = 50;
+  var width = 500;
+  for(var i = 0; i < 5; i++) {
+    dataset.push(Math.ceil(Math.random() * 10));
   };
 
-  d3.select('body').selectAll('p').data(dataset)
+  var svg = d3.select('body').append('svg')
+              .attr('width', width)
+              .attr('height', height);
+
+  var circles = svg.selectAll('circle').data(dataset)
     .enter()
-    .append('div')
-    .attr('class', 'bar')
-    .style('height', function(d) {return d * 5 + "px"})
-    .style('margin-right', '2px');
+    .append('circle');
+
+  circles.attr("cx", function(d, i) {return (i * 50) + 25;})
+    .attr('cy', height/2)
+    .attr('r', function(d) {return d;});
 })();
