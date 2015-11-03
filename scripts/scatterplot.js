@@ -4,6 +4,7 @@
                 [410, 12], [475, 44], [25, 67], [85, 21], [220, 88]
               ];
 
+  var padding = 40;
   var svgWidth = 500;
   var svgHeight = 500
   var svg = d3.select('body').append('svg')
@@ -12,10 +13,10 @@
 
   var xScale = d3.scale.linear()
                   .domain([0, d3.max(dataset, function(d) {return d[0];})])
-                  .range([0, svgWidth]);
+                  .range([padding, svgWidth - padding]);
   var yScale = d3.scale.linear()
                   .domain([0, d3.max(dataset, function(d) {return d[1];})])
-                  .range([0, svgHeight])
+                  .range([padding, svgHeight - padding])
 
   svg.selectAll('circle').data(dataset)
     .enter()
