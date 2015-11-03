@@ -18,6 +18,13 @@
                   .domain([0, d3.max(dataset, function(d) {return d[1];})])
                   .range([padding, svgHeight - padding])
 
+  var xAxis = d3.svg.axis()
+                .scale(xScale)
+                .orient('bottom');
+  var yAxis = d3.svg.axis()
+                .scale(yScale)
+                .orient('left');
+
   svg.selectAll('circle').data(dataset)
     .enter()
     .append('circle')
@@ -33,4 +40,10 @@
     .attr('x', function(d) {return xScale(d[0])})
     .attr('y', function(d) {return yScale(d[1])})
     .attr('class', 'scatter-labels');
+
+  svg.append('g')
+      .attr('class', 'axis')
+      .attr('transform', 'translate(0, '+ (svgHeight - padding) + ')')
+      .call(xAxis);
+
 })();
