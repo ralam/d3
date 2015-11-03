@@ -16,7 +16,7 @@
                   .range([padding, svgWidth - padding]);
   var yScale = d3.scale.linear()
                   .domain([0, d3.max(dataset, function(d) {return d[1];})])
-                  .range([padding, svgHeight - padding])
+                  .range([svgHeight - padding, padding])
 
   var xAxis = d3.svg.axis()
                 .scale(xScale)
@@ -46,4 +46,8 @@
       .attr('transform', 'translate(0, '+ (svgHeight - padding) + ')')
       .call(xAxis);
 
+  svg.append('g')
+      .attr('class', 'axis')
+      .attr('transform', 'translate('+ (padding) + ', 0)')
+      .call(yAxis);
 })();
