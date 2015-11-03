@@ -1,3 +1,5 @@
-.bar {
-  color: teal;
+.labels {
+  font-family: sans-serif;
+  font-size: 11px;
+  fill: white;
 }
