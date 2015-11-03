@@ -1,7 +1,9 @@
 (function() {
-  var dataset = [ 25, 7, 5, 26, 11, 8, 25, 14, 23, 19,
-                  14, 11, 22, 29, 11, 13, 12, 17, 18, 10,
-                  24, 18, 25, 9, 3 ];
+  var dataset = [];
+  for(var i = 0; i < 25; i++) {
+    dataset.push(Math.ceil(Math.random() * 30));
+  };
+
   d3.select('body').selectAll('p').data(dataset)
     .enter()
     .append('div')
