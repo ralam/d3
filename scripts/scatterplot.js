@@ -1,12 +1,14 @@
 (function() {
-  var dataset = [
-                [5, 20], [480, 90], [250, 50], [100, 33], [330, 95],
-                [410, 12], [475, 44], [25, 67], [85, 21], [220, 88]
-              ];
+  var dataset = [];
+  for(var i = 0; i < 25; i++) {
+    var x = Math.round(Math.random() * 1000);
+    var y = Math.round(Math.random() * 1000);
+    dataset.push([x, y])
+  };
 
   var padding = 40;
   var svgWidth = 500;
-  var svgHeight = 500
+  var svgHeight = 500;
   var svg = d3.select('body').append('svg')
               .attr('width', svgWidth)
               .attr('height', svgHeight)
