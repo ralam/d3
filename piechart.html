@@ -8,22 +8,34 @@
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   </head>
   <body>
+
     <script src='scripts/piechart.js'></script>
+    <script src='scripts/chartDisplay.js'></script>
     <script type='text/javascript'>
       var piechart = Display.Piechart();
+      $(document).ready(function(){
+
+        var $form = $('form');
+        $form.submit(function(e) {
+          e.preventDefault();
+          data = $form.serializeArray();
+          console.log(data);
+        });
+      });
+
     </script>
     <form>
       <label>
         Cats
-        <input type='text' name='cats[value]'>
+        <input type='text' name='cats' value='30'>
       </label>
       <label>
         Dogs
-        <input type='text' name='dogs[value]'>
+        <input type='text' name='dogs' value='40'>
       </label>
       <label>
         Birds
-        <input type='text' name='birds[value]'>
+        <input type='text' name='birds' value='10'>
       </label>
       <button type="submit">Submit</button>
     </form>
