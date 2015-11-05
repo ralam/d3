@@ -18,8 +18,12 @@
         var $form = $('form');
         $form.submit(function(e) {
           e.preventDefault();
-          data = $form.serializeArray();
-          console.log(data);
+          var data = $form.serializeArray();
+          var parsedData = [];
+          for(var i = 0; i < data.length; i++) {
+            parsedData.push([data[i].name, 1 * data[i].value]);
+          };
+          console.log(parsedData);
         });
       });
 

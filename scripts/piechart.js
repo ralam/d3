@@ -5,6 +5,7 @@
 
   var Piechart = Display.Piechart = function() {
     var dataset = [['cats', 30], ['dogs', 40], ['birds', 10]];
+    // var dataset = [{'cats': 30}, {'dogs': 40}, {'birds': 10}];
     var svgWidth = 500;
     var svgHeight = 500;
     var radius = Math.min(svgWidth, svgHeight) / 2;
