@@ -14,7 +14,7 @@
     <script type='text/javascript'>
 
       var dataset = [['cats', 30], ['dogs', 40], ['birds', 10]];
-      var piechart = Display.Piechart(dataset);
+      var piechart = new Display.Piechart(dataset);
       $(document).ready(function(){
 
         var $form = $('form');
@@ -25,7 +25,7 @@
           for(var i = 0; i < data.length; i++) {
             parsedData.push([data[i].name, 1 * data[i].value]);
           };
-          Display.Piechart(parsedData);
+          piechart.rerender(parsedData);
         });
       });
 
